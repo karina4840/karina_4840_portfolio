@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors - Soft Pink */
+    --color-primary: #ff69b4; /* Hot pink base */
+    --color-primary-50: #fff0f5; /* Ultra light pink */
+    --color-primary-100: #ffe4f0;
+    --color-primary-200: #ffc8e0;
+    --color-primary-300: #ff9cc0;
+    --color-primary-400: #ff70a0; /* Softer pink */
+    --color-primary-500: #ff69b4; /* Base hot pink */
+    --color-primary-600: #e55aa0; /* Darker pink */
+    --color-primary-700: #cc4b8c;
+    --color-primary-800: #b23c78;
+    --color-primary-900: #992d64;
+
+    /* Secondary Colors - Lavender */
+    --color-secondary: #e6e6fa; /* Lavender */
+    --color-secondary-50: #f8f8ff;
+    --color-secondary-100: #f0f0ff;
+    --color-secondary-200: #e0e0ff;
+    --color-secondary-300: #c8c8ff;
+    --color-secondary-400: #b0b0ff;
+    --color-secondary-500: #e6e6fa; /* Base lavender */
+    --color-secondary-600: #d4d4f0;
+    --color-secondary-700: #c2c2e6;
+    --color-secondary-800: #b0b0dc;
+    --color-secondary-900: #9e9ed2;
+
+    /* Accent Colors - Soft Mint */
+    --color-accent: #98d8c8; /* Soft mint green */
+    --color-accent-50: #f0faf8;
+    --color-accent-100: #e0f5f0;
+    --color-accent-200: #c1ebe1;
+    --color-accent-300: #a2e1d2;
+    --color-accent-400: #83d7c3;
+    --color-accent-500: #98d8c8; /* Base soft mint */
+    --color-accent-600: #7ac2b0;
+    --color-accent-700: #5cac98;
+    --color-accent-800: #3e9680;
+    --color-accent-900: #208068;
+
+    /* Background Colors */
+    --color-background: #1a1a2e; /* Dark blue-gray */
+    --color-surface: #16213e; /* Medium blue-gray */
+    --color-surface-light: #0f3460; /* Lighter blue-gray */
+    --color-surface-dark: #0f0f23; /* Darker blue-gray */
+
+    /* Text Colors */
+    --color-text-primary: #f8f9fa; /* Very light gray */
+    --color-text-secondary: #e9ecef; /* Light gray */
+    --color-text-tertiary: #2d3748; /* Dark gray for contrast */
+    --color-text-muted: #a0aec0; /* Medium gray */
+
+    /* Status Colors */
+    /* Start of Selection */
+    --color-success: #98D8C8; /* Soft pastel mint */
+    --color-success-50: #f0faf8;
+    --color-success-100: #e0f5f0;
+    --color-success-200: #c1ebe1;
+    --color-success-300: #a2e1d2;
+    --color-success-400: #83d7c3;
+    --color-success-500: #98d8c8; /* Base soft mint */
+    --color-success-600: #7ac2b0;
+    --color-success-700: #5cac98;
+    --color-success-800: #3e9680;
+    --color-success-900: #208068;
+
+    --color-warning: #FFB6C1; /* Light pastel pink */
+    --color-warning-50: #fff5f7;
+    --color-warning-100: #ffe4e9;
+    --color-warning-200: #ffc9d3;
+    --color-warning-300: #ffadbd;
+    --color-warning-400: #ff92a7;
+    --color-warning-500: #ffb6c1; /* Base light pink */
+    --color-warning-600: #e6a4b0;
+    --color-warning-700: #cc929f;
+    --color-warning-800: #b3808e;
+    --color-warning-900: #996e7d;
+
+    --color-error: #FFB3BA; /* Soft pastel coral */
+    --color-error-50: #fff5f6;
+    --color-error-100: #ffe4e7;
+    --color-error-200: #ffc9cf;
+    --color-error-300: #ffadb7;
+    --color-error-400: #ff929f;
+    --color-error-500: #ffb3ba; /* Base soft coral */
+    --color-error-600: #e6a1a7;
+    --color-error-700: #cc8f94;
+    --color-error-800: #b37d81;
+    --color-error-900: #996b6e;
+    /* End of Selection */
+
+    /* Border Colors */
+    --color-border: #2d3748; /* Medium gray */
+    --color-border-light: #4a5568; /* Lighter gray */
+    --color-border-dark: #1a202c; /* Darker gray */
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", monospace;
+  }
+
+  /* Neon glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px 5px rgba(255, 105, 180, 0.7); /* hot pink glow */
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px 5px rgba(230, 230, 250, 0.7); /* lavender glow */
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px 5px rgba(152, 216, 200, 0.7); /* soft mint glow */
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px 5px rgba(152, 216, 200, 0.7); /* soft mint glow */
+  }
+
+  /* Text glow effects */
+  .text-glow-primary {
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.851);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 10px rgba(230, 230, 250, 0.85);
+  }
+
+  .text-glow-accent {
+    text-shadow: 0 0 10px rgba(152, 216, 200, 0.85);
+  }
+
+  /* Smooth transitions */
+  * {
+    transition: all 0.3s ease-out;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-600);
+  }
+
+  @layer components {
+    .btn-primary {
+      @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105;
+      box-shadow: 0 0 10px var(--color-primary);
+    }
+    .btn-secondary {
+      @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105;
+      box-shadow: 0 0 10px var(--color-secondary);
+    }
+    .btn-outline {
+      @apply border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-white;
+      box-shadow: 0 0 8px var(--color-primary);
+    }
+    .card {
+      @apply bg-surface rounded-lg p-6 border border-border transition-all duration-300 hover:border-primary;
+    }
+    .input-field {
+      @apply bg-surface border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:border-primary focus:outline-none transition-all duration-300;
+    }
+  }
+
+  @layer utilities {
+    .animate-pulse-slow {
+      animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 20px 5px rgba(255, 105, 180, 0.3);
+      }
+      to {
+        box-shadow: 0 0 30px 10px rgba(255, 105, 180, 0.5);
+      }
+    }
+
+    .backdrop-blur-glass {
+      backdrop-filter: blur(10px);
+      background: rgba(10, 10, 15, 0.8);
+    }
+  }
+}
