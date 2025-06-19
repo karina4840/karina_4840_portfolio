@@ -106,7 +106,7 @@ const Header = () => {
           {/* CTA Buttons - Desktop */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="/assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
+              href="./assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
               download
               className="px-4 py-2 border border-primary text-primary rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-white hover:glow-primary hover:scale-105"
             >
@@ -159,7 +159,7 @@ const Header = () => {
             {/* Mobile CTA Buttons */}
             <div className="px-3 py-2 space-y-2 border-t border-border mt-3">
               <a
-                href="/assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
+                href="./assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
                 download
                 onClick={closeMenu}
                 className="flex items-center justify-center space-x-2 w-full px-3 py-2 border border-primary text-primary rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-white hover:glow-primary text-sm"

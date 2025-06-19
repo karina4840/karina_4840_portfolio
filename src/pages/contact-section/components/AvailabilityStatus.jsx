@@ -60,7 +60,7 @@ const AvailabilityStatus = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf";
+    link.href = "./assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf";
     link.download = "CV_Karina_Ivanova_Frontend_Developer.pdf";
     document.body.appendChild(link);
     link.click();
@@ -178,7 +178,7 @@ const AvailabilityStatus = () => {
               {/* PDF Viewer */}
               <div className="h-[calc(90vh-80px)] bg-white">
                 <iframe
-                  src="/assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
+                  src="./assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
                   className="w-full h-full border-0"
                   title="Resume Preview"
                   style={{ minHeight: "500px" }}
