@@ -114,16 +114,16 @@ const SkillsSection = () => {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Category Tabs */}
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 px-4">
         {Object.entries(skillCategories).map(([key, category]) => {
           const colors = getColorClasses(category.color);
           return (
             <motion.button
               key={key}
               onClick={() => setActiveCategory(key)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 ${
                 activeCategory === key
                   ? `${colors.bg} ${colors.text} ${colors.border} border ${colors.glow}`
                   : 'bg-surface text-text-secondary border border-border hover:border-primary/20'
@@ -131,8 +131,9 @@ const SkillsSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Icon name={category.icon} size={20} />
-              <span>{category.title}</span>
+              <Icon name={category.icon} size={16} className="sm:w-5 sm:h-5" />
+              <span className="hidden sm:inline">{category.title}</span>
+              <span className="sm:hidden">{category.title.split(' ')[0]}</span>
             </motion.button>
           );
         })}
@@ -144,7 +145,7 @@ const SkillsSection = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
       >
         {skillCategories[activeCategory].skills.map((skill, index) => {
           const colors = getColorClasses(skillCategories[activeCategory].color);
@@ -153,17 +154,17 @@ const SkillsSection = () => {
             <motion.div
               key={skill.name}
               variants={itemVariants}
-              className={`p-6 rounded-xl border transition-all duration-300 hover:scale-105 ${colors.bg} ${colors.border} ${colors.glow}`}
+              className={`p-4 sm:p-6 rounded-xl border transition-all duration-300 hover:scale-105 ${colors.bg} ${colors.border} ${colors.glow}`}
               whileHover={{ y: -5 }}
             >
               {/* Skill Header */}
               <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-3">
-                  <div className={`p-2 rounded-lg ${colors.bg} border ${colors.border}`}>
-                    <Icon name={skill.icon} size={20} className={colors.text} />
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <div className={`p-1.5 sm:p-2 rounded-lg ${colors.bg} border ${colors.border}`}>
+                    <Icon name={skill.icon} size={16} className={`${colors.text} sm:w-5 sm:h-5`} />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white">{skill.name}</h4>
+                    <h4 className="font-semibold text-white text-sm sm:text-base">{skill.name}</h4>
                   </div>
                 </div>
               </div>

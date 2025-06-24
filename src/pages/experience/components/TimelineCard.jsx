@@ -52,11 +52,11 @@ const TimelineCard = ({ item, isActive, onToggle, index }) => {
       whileHover={{ y: -5 }}
     >
       {/* Card Header */}
-      <div className="p-6">
-        <div className="flex items-start space-x-4">
+      <div className="p-4 sm:p-6">
+        <div className="flex items-start space-x-3 sm:space-x-4">
           {/* Company Logo */}
           <div className="flex-shrink-0">
-            <div className="w-16 h-16 rounded-lg overflow-hidden border-2 border-border">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg overflow-hidden border-2 border-border">
               <Image
                 src={item.logo}
                 alt={`${item.company} logo`}
@@ -68,7 +68,7 @@ const TimelineCard = ({ item, isActive, onToggle, index }) => {
           {/* Basic Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-xl font-heading font-bold text-white truncate">
+              <h3 className="text-lg sm:text-xl font-heading font-bold text-white truncate">
                 {item.role}
               </h3>
               <motion.div
@@ -77,25 +77,25 @@ const TimelineCard = ({ item, isActive, onToggle, index }) => {
               >
                 <Icon
                   name="ChevronDown"
-                  size={20}
-                  className={`${
+                  size={18}
+                  className={`sm:w-5 sm:h-5 ${
                     item.type === "work" ? "text-accent" : "text-primary"
                   }`}
                 />
               </motion.div>
             </div>
 
-            <div className="flex flex-row items-center justify-between lg:flex-col lg:items-start lg:justify-start gap-2 mb-3">
-              <p className="text-lg font-semibold text-text-secondary">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-3">
+              <p className="text-base sm:text-lg font-semibold text-text-secondary">
                 {item.company}
               </p>
-              <div className="flex flex-row lg:flex-col items-center lg:items-start  space-x-4 lg:space-x-0 lg:space-y-2  text-sm text-text-muted">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-4 text-xs sm:text-sm text-text-muted">
                 <div className="flex items-center space-x-1">
-                  <Icon name="Calendar" size={14} />
+                  <Icon name="Calendar" size={12} className="sm:w-3.5 sm:h-3.5" />
                   <span>{item.duration}</span>
                 </div>
                 <div className="flex items-center space-x-1">
-                  <Icon name="MapPin" size={14} />
+                  <Icon name="MapPin" size={12} className="sm:w-3.5 sm:h-3.5" />
                   <span>{item.location}</span>
                 </div>
               </div>
@@ -104,8 +104,8 @@ const TimelineCard = ({ item, isActive, onToggle, index }) => {
         </div>
 
         {/* Brief Description */}
-        <div className="mt-4">
-          <p className="text-text-secondary leading-relaxed line-clamp-2">
+        <div className="mt-3 sm:mt-4">
+          <p className="text-sm sm:text-base text-text-secondary leading-relaxed line-clamp-2">
             {item.description.split("\n\n")[0]}
           </p>
         </div>
@@ -121,27 +121,27 @@ const TimelineCard = ({ item, isActive, onToggle, index }) => {
             exit="hidden"
             className="border-t border-border"
           >
-            <div className="p-6 space-y-6">
+            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
               {/* Full Description */}
               <div>
-                <h4 className="text-lg font-semibold text-white mb-3">
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">
                   Overview
                 </h4>
-                <div className="text-text-secondary leading-relaxed whitespace-pre-line">
+                <div className="text-sm sm:text-base text-text-secondary leading-relaxed whitespace-pre-line">
                   {item.description}
                 </div>
               </div>
 
               {/* Technologies */}
               <div>
-                <h4 className="text-lg font-semibold text-white mb-3">
+                <h4 className="text-base sm:text-lg font-semibold text-white mb-2 sm:mb-3">
                   Technologies Used
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {item.technologies.map((tech, techIndex) => (
                     <motion.span
                       key={tech}
-                      className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                      className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 ${
                         item.type === "work"
                           ? "bg-accent/10 text-accent border border-accent/20 hover:bg-accent/20"
                           : "bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20"

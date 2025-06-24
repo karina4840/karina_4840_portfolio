@@ -197,6 +197,44 @@
     }
     .input-field {
       @apply bg-surface border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-muted focus:border-primary focus:outline-none transition-all duration-300;
+      /* Mobile-friendly enhancements */
+      min-height: 44px; /* Minimum touch target size */
+      font-size: 16px; /* Prevents zoom on iOS */
+      -webkit-appearance: none; /* Removes default iOS styling */
+      -moz-appearance: none;
+      appearance: none;
+    }
+    
+    /* Enhanced focus states for mobile */
+    .input-field:focus {
+      box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    /* Better placeholder styling */
+    .input-field::placeholder {
+      color: var(--color-text-muted);
+      opacity: 0.7;
+    }
+    
+    /* Textarea specific styling */
+    textarea.input-field {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    
+    /* Mobile-specific improvements */
+    @media (max-width: 640px) {
+      .input-field {
+        padding: 12px 16px;
+        font-size: 16px;
+        border-radius: 12px;
+      }
+      
+      textarea.input-field {
+        min-height: 100px;
+      }
     }
   }
 

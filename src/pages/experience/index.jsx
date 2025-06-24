@@ -95,56 +95,56 @@ const ExperiencePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-color-background pt-20 pb-16">
+    <div className="min-h-screen bg-color-background pt-16 sm:pt-20 pb-12 sm:pb-16">
       {/* Hero Section */}
       <motion.section
-        className="relative py-16 px-4 sm:px-6 lg:px-8"
+        className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            className="inline-flex items-center space-x-2 px-4 py-2 bg-surface rounded-full border border-primary mb-6"
+            className="inline-flex items-center space-x-2 px-3 sm:px-4 py-2 bg-surface rounded-full border border-primary mb-4 sm:mb-6"
             animate={{ glow: [0, 1, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Icon name="MapPin" size={16} className="text-primary" />
-            <span className="text-sm font-medium text-primary">
+            <Icon name="MapPin" size={14} className="sm:w-4 sm:h-4 text-primary" />
+            <span className="text-xs sm:text-sm font-medium text-primary">
               Professional Journey
             </span>
           </motion.div>
 
-          <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 text-glow-primary">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold text-white mb-4 sm:mb-6 text-glow-primary">
             Experience
             <span className="text-primary"> Timeline</span>
           </h1>
 
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed px-4">
             A chronological journey through my professional growth, technical
             evolution, and the impactful projects that shaped my expertise in
             frontend development.
           </p>
         </div>
 
-        {/* Floating Elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-primary opacity-10 rounded-full blur-xl animate-pulse-slow"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary opacity-10 rounded-full blur-xl animate-pulse-slow"></div>
+        {/* Floating Elements - Hidden on mobile for better performance */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-primary opacity-10 rounded-full blur-xl animate-pulse-slow hidden lg:block"></div>
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-secondary opacity-10 rounded-full blur-xl animate-pulse-slow hidden lg:block"></div>
       </motion.section>
 
       {/* Timeline Section */}
       <motion.section
-        className="relative py-16 px-4 sm:px-6 lg:px-8"
+        className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <div className="max-w-6xl mx-auto">
-          {/* Timeline Line */}
+          {/* Timeline Line - Hidden on mobile */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-secondary to-accent opacity-30 hidden lg:block"></div>
 
           {/* Timeline Items */}
-          <div className="space-y-16 lg:space-y-24">
+          <div className="space-y-8 sm:space-y-12 lg:space-y-24">
             {experienceData.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -156,7 +156,7 @@ const ExperiencePage = () => {
                   transform: `translateY(${scrollY * 0.1}px)`,
                 }}
               >
-                {/* Timeline Node */}
+                {/* Timeline Node - Hidden on mobile */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full border-4 border-background z-10 hidden lg:block">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full animate-pulse-slow opacity-50"></div>
                 </div>
@@ -177,7 +177,7 @@ const ExperiencePage = () => {
                   />
                 </div>
 
-                {/* Year Indicator */}
+                {/* Year Indicator - Hidden on mobile */}
                 <div
                   className={`hidden lg:block w-5/12 text-center ${
                     index % 2 === 0 ? "order-last" : "order-last"
@@ -195,18 +195,18 @@ const ExperiencePage = () => {
 
       {/* Skills Section */}
       <motion.section
-        className="py-16 px-4 sm:px-6 lg:px-8"
+        className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4 text-glow-accent">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-3 sm:mb-4 text-glow-accent">
               Skills
             </h2>
-            <p className="text-text-secondary max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-text-secondary max-w-2xl mx-auto px-4">
               A comprehensive overview of my technical proficiencies, years of
               experience, and expertise levels across different technologies and
               domains
@@ -219,39 +219,39 @@ const ExperiencePage = () => {
 
       {/* Call to Action */}
       <motion.section
-        className="py-16 px-4 sm:px-6 lg:px-8"
+        className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
         <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8 md:p-12 border border-primary/20">
-            <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
+          <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-6 sm:p-8 md:p-12 border border-primary/20">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-white mb-3 sm:mb-4">
               Ready to Create Something Amazing?
             </h3>
-            <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-text-secondary mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
               Let's discuss how my experience and skills can contribute to your
               next project. I'm always excited to take on new challenges and
               create exceptional digital experiences.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
               <motion.a
                 href="/contact-section"
-                className="inline-flex items-center space-x-2 px-8 py-4 bg-primary text-text-tertiary rounded-lg font-semibold transition-all duration-300 hover:glow-primary hover:scale-105"
+                className="inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 bg-primary text-text-tertiary rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:glow-primary hover:scale-105"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon name="MessageCircle" size={20} />
+                <Icon name="MessageCircle" size={18} className="sm:w-5 sm:h-5" />
                 <span>Let's Connect</span>
               </motion.a>
               <motion.a
                 href="/project-showcase"
-                className="inline-flex items-center space-x-2 px-8 py-4 border border-accent text-accent rounded-lg font-semibold transition-all duration-300 hover:bg-accent hover:text-white hover:glow-accent"
+                className="inline-flex items-center justify-center space-x-2 px-6 sm:px-8 py-3 sm:py-4 border border-accent text-accent rounded-lg font-semibold text-sm sm:text-base transition-all duration-300 hover:bg-accent hover:text-white hover:glow-accent"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Icon name="FolderOpen" size={20} />
+                <Icon name="FolderOpen" size={18} className="sm:w-5 sm:h-5" />
                 <span>View Projects</span>
               </motion.a>
             </div>

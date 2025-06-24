@@ -1,6 +1,5 @@
 import React from "react";
 import { HashRouter, Routes as RouterRoutes, Route } from "react-router-dom";
-import ScrollToTop from "components/ScrollToTop";
 import ErrorBoundary from "components/ErrorBoundary";
 import Header from "components/ui/Header";
 import NotFound from "pages/NotFound";
@@ -14,13 +13,17 @@ const Routes = () => {
   return (
     <HashRouter>
       <ErrorBoundary>
-        <ScrollToTop />
         <Header />
         <RouterRoutes>
           <Route path="/" element={<Homepage />} />
           <Route path="/homepage" element={<Homepage />} />
           <Route path="/experience" element={<ExperiencePage />} />
-          <Route path="/project-showcase" element={<UnderMaintenance />} />
+          
+          {/* <Route path="/project-showcase" element={<UnderMaintenance />} /> */}
+
+          <Route path="/project-showcase" element={<ProjectShowcaseInteractiveGallery />} />
+
+
           <Route
             path="/contact-section"
             element={<ConnectionHubContactSocial />}

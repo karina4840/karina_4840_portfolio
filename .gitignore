@@ -8,8 +8,6 @@ yarn-error.log*
 dist/
 build/
 
-# Project showcase folder
-src/pages/project-showcase/
 
 # Environment variables
 .env
@@ -43,9 +41,6 @@ pids
 *.pid
 *.seed
 *.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
 
 # nyc test coverage
 .nyc_output

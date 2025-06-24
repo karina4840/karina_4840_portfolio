@@ -19,43 +19,26 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
 
   const watchedFields = watch();
 
-  const projectTypes = [
-    { value: "", label: "Select Project Type" },
-    { value: "job-offer", label: "Job Offer" },
-    { value: "frontend-development", label: "Frontend Development" },
-    { value: "ui-ux-design", label: "UI/UX Design" },
-    { value: "other", label: "Other" },
-  ];
-
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setShowError(false);
     setErrorMessage("");
 
     try {
-      // Using Formspree for email handling
       const formData = new FormData();
-      formData.append("email", "karina4840@gmail.com"); // Your email address
+      formData.append("email", "karina4840@gmail.com");
       formData.append("name", data.name);
       formData.append("from_email", data.email);
-      formData.append("project_type", data.projectType);
       formData.append("message", data.message);
-      formData.append(
-        "subject",
-        `New Contact Form Submission - ${data.projectType}`
-      );
+      formData.append("subject", `New Contact Form Submission`);
 
-      // Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint
-      const response = await fetch(
-        "https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT",
-        {
-          method: "POST",
-          body: formData,
-          headers: {
-            Accept: "application/json",
-          },
-        }
-      );
+      const response = await fetch("https://formspree.io/f/myzjnrjo", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
 
       if (response.ok) {
         console.log("Email sent successfully:", data);
@@ -63,7 +46,6 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
         setFormSubmitted(true);
         reset();
 
-        // Hide success message after 5 seconds
         setTimeout(() => {
           setShowSuccess(false);
         }, 5000);
@@ -124,26 +106,13 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
     },
   };
 
-  const particleVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: {
-      opacity: [0, 1, 0],
-      scale: [0, 1, 0],
-      transition: {
-        duration: 2,
-        repeat: Infinity,
-        repeatDelay: 0.5,
-      },
-    },
-  };
-
   return (
-    <div className="relative">
-      <div className="mb-8">
-        <h2 className="text-3xl font-heading font-bold text-white mb-4 text-glow-primary">
+    <div className="relative w-full max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mb-6 sm:mb-8">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white mb-3 sm:mb-4 text-glow-primary text-center sm:text-left">
           Start a Conversation
         </h2>
-        <p className="text-text-secondary">
+        <p className="text-sm sm:text-base text-text-secondary text-center sm:text-left leading-relaxed">
           Tell me about your project and let's explore how we can work together
           to bring your vision to life.
         </p>
@@ -152,36 +121,22 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
       <AnimatePresence>
         {showSuccess && (
           <motion.div
-            className="absolute inset-0 z-10 flex items-center justify-center bg-color-background/90 backdrop-blur-sm rounded-lg"
+            className="absolute inset-0 z-10 flex items-center justify-center bg-color-background/95 backdrop-blur-sm rounded-lg p-4 sm:p-8"
             variants={successVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
-            <div className="text-center p-8">
-              <div className="relative mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-success to-accent rounded-full flex items-center justify-center mx-auto glow-success">
-                  <Icon name="CheckCircle" size={40} color="white" />
+            <div className="text-center p-4 sm:p-8 w-full max-w-sm">
+              <div className="relative mb-4 sm:mb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-success to-accent rounded-full flex items-center justify-center mx-auto glow-success">
+                  <Icon name="CheckCircle" size={32} className="sm:w-10 sm:h-10" color="white" />
                 </div>
-                {/* Particle effects */}
-                {[...Array(6)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute w-2 h-2 bg-success rounded-full"
-                    style={{
-                      top: `${20 + Math.sin((i * 60 * Math.PI) / 180) * 40}px`,
-                      left: `${20 + Math.cos((i * 60 * Math.PI) / 180) * 40}px`,
-                    }}
-                    variants={particleVariants}
-                    initial="hidden"
-                    animate="visible"
-                  />
-                ))}
               </div>
-              <h3 className="text-2xl font-heading font-bold text-white mb-2 text-glow-success">
+              <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-2 text-glow-success">
                 Message Sent!
               </h3>
-              <p className="text-text-secondary">
+              <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                 Thank you for reaching out. I'll get back to you within 24
                 hours.
               </p>
@@ -191,34 +146,34 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
 
         {showError && (
           <motion.div
-            className="absolute inset-0 z-10 flex items-center justify-center bg-color-background/90 backdrop-blur-sm rounded-lg"
+            className="absolute inset-0 z-10 flex items-center justify-center bg-color-background/95 backdrop-blur-sm rounded-lg p-4 sm:p-8"
             variants={errorVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
-            <div className="text-center p-8">
-              <div className="relative mb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-error to-warning rounded-full flex items-center justify-center mx-auto glow-error">
-                  <Icon name="AlertCircle" size={40} color="white" />
+            <div className="text-center p-4 sm:p-8 w-full max-w-sm">
+              <div className="relative mb-4 sm:mb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-error to-warning rounded-full flex items-center justify-center mx-auto glow-error">
+                  <Icon name="AlertCircle" size={32} className="sm:w-10 sm:h-10" color="white" />
                 </div>
               </div>
-              <h3 className="text-2xl font-heading font-bold text-white mb-2 text-glow-error">
+              <h3 className="text-xl sm:text-2xl font-heading font-bold text-white mb-2 text-glow-error">
                 Message Failed
               </h3>
-              <p className="text-text-secondary mb-4">{errorMessage}</p>
+              <p className="text-sm sm:text-base text-text-secondary mb-4 leading-relaxed">{errorMessage}</p>
               <div className="space-y-3">
                 <button
                   onClick={() => setShowError(false)}
-                  className="px-6 py-2 bg-error text-white rounded-lg hover:bg-error/80 transition-colors duration-300"
+                  className="w-full sm:w-auto px-6 py-3 sm:py-2 bg-error text-white rounded-lg hover:bg-error/80 transition-colors duration-300 text-sm sm:text-base font-medium"
                 >
                   Try Again
                 </button>
-                <div className="text-sm text-text-secondary">
+                <div className="text-xs sm:text-sm text-text-secondary leading-relaxed">
                   Or contact me directly at:{" "}
                   <a
                     href="mailto:karina4840@gmail.com"
-                    className="text-primary hover:underline"
+                    className="text-primary hover:underline break-all"
                   >
                     karina4840@gmail.com
                   </a>
@@ -229,7 +184,7 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
         )}
       </AnimatePresence>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
         {/* Name Field */}
         <div>
           <label
@@ -249,19 +204,19 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
                   message: "Name must be at least 2 characters",
                 },
               })}
-              className={`w-full input-field ${
+              className={`w-full input-field text-base sm:text-lg px-4 py-3 sm:py-4 ${
                 errors.name
                   ? "border-error glow-error"
                   : "focus:border-primary focus:glow-primary"
               } ${watchedFields.name ? "border-success" : ""}`}
               placeholder="Enter your full name"
             />
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <div className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2">
               {watchedFields.name && !errors.name && (
-                <Icon name="Check" size={18} className="text-success" />
+                <Icon name="Check" size={20} className="text-success" />
               )}
               {errors.name && (
-                <Icon name="AlertCircle" size={18} className="text-error" />
+                <Icon name="AlertCircle" size={20} className="text-error" />
               )}
             </div>
           </div>
@@ -269,7 +224,7 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-error text-sm mt-1 flex items-center space-x-1"
+              className="text-error text-sm mt-2 flex items-center space-x-1"
             >
               <Icon name="AlertTriangle" size={14} />
               <span>{errors.name.message}</span>
@@ -296,7 +251,7 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
                   message: "Invalid email address",
                 },
               })}
-              className={`w-full input-field ${
+              className={`w-full input-field text-base sm:text-lg px-4 py-3 sm:py-4 ${
                 errors.email
                   ? "border-error glow-error"
                   : "focus:border-primary focus:glow-primary"
@@ -305,12 +260,12 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
               }`}
               placeholder="your.email@example.com"
             />
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+            <div className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2">
               {watchedFields.email && !errors.email && (
-                <Icon name="Check" size={18} className="text-success" />
+                <Icon name="Check" size={20} className="text-success" />
               )}
               {errors.email && (
-                <Icon name="AlertCircle" size={18} className="text-error" />
+                <Icon name="AlertCircle" size={20} className="text-error" />
               )}
             </div>
           </div>
@@ -318,61 +273,10 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
             <motion.p
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-error text-sm mt-1 flex items-center space-x-1"
+              className="text-error text-sm mt-2 flex items-center space-x-1"
             >
               <Icon name="AlertTriangle" size={14} />
               <span>{errors.email.message}</span>
-            </motion.p>
-          )}
-        </div>
-
-        {/* Project Type Field */}
-        <div>
-          <label
-            htmlFor="projectType"
-            className="block text-sm font-medium text-text-secondary mb-2"
-          >
-            Project Type *
-          </label>
-          <div className="relative">
-            <select
-              id="projectType"
-              {...register("projectType", {
-                required: "Please select a project type",
-              })}
-              className={`w-full input-field ${
-                errors.projectType
-                  ? "border-error glow-error"
-                  : "focus:border-primary focus:glow-primary"
-              } ${watchedFields.projectType ? "border-success" : ""}`}
-            >
-              {projectTypes.map((type) => (
-                <option
-                  key={type.value}
-                  value={type.value}
-                  className="bg-surface text-text-primary"
-                >
-                  {type.label}
-                </option>
-              ))}
-            </select>
-            <div className="absolute right-8 top-1/2 transform -translate-y-1/2">
-              {watchedFields.projectType && !errors.projectType && (
-                <Icon name="Check" size={18} className="text-success" />
-              )}
-              {errors.projectType && (
-                <Icon name="AlertCircle" size={18} className="text-error" />
-              )}
-            </div>
-          </div>
-          {errors.projectType && (
-            <motion.p
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-error text-sm mt-1 flex items-center space-x-1"
-            >
-              <Icon name="AlertTriangle" size={14} />
-              <span>{errors.projectType.message}</span>
             </motion.p>
           )}
         </div>
@@ -388,7 +292,7 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
           <div className="relative">
             <textarea
               id="message"
-              rows={6}
+              rows={5}
               {...register("message", {
                 required: "Please tell me about your project",
                 minLength: {
@@ -397,27 +301,27 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
                     "Please provide more details (at least 20 characters)",
                 },
               })}
-              className={`w-full input-field resize-none ${
+              className={`w-full input-field resize-none text-base sm:text-lg px-4 py-3 sm:py-4 ${
                 errors.message
                   ? "border-error glow-error"
                   : "focus:border-primary focus:glow-primary"
               } ${
                 watchedFields.message && !errors.message ? "border-success" : ""
               }`}
-              placeholder="Tell me about your project, timeline, budget, and any specific requirements..."
+              placeholder="Tell me about your project"
             />
-            <div className="absolute right-3 top-3">
+            <div className="absolute right-3 sm:right-4 top-3 sm:top-4">
               {watchedFields.message &&
                 !errors.message &&
                 watchedFields.message.length >= 20 && (
-                  <Icon name="Check" size={18} className="text-success" />
+                  <Icon name="Check" size={20} className="text-success" />
                 )}
               {errors.message && (
-                <Icon name="AlertCircle" size={18} className="text-error" />
+                <Icon name="AlertCircle" size={20} className="text-error" />
               )}
             </div>
           </div>
-          <div className="flex justify-between items-center mt-1">
+          <div className="flex justify-between items-center mt-2">
             {errors.message ? (
               <motion.p
                 initial={{ opacity: 0, y: -10 }}
@@ -440,22 +344,22 @@ const ContactForm = ({ formSubmitted, setFormSubmitted }) => {
         <motion.button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full px-6 py-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
+          className={`w-full px-6 py-4 sm:py-5 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 text-base sm:text-lg ${
             isSubmitting
               ? "bg-surface text-text-muted cursor-not-allowed"
-              : "bg-primary text-text-tertiary hover:glow-primary hover:scale-105"
+              : "bg-primary text-text-tertiary hover:glow-primary hover:scale-105 active:scale-95"
           }`}
           whileHover={!isSubmitting ? { scale: 1.02 } : {}}
           whileTap={!isSubmitting ? { scale: 0.98 } : {}}
         >
           {isSubmitting ? (
             <>
-              <div className="w-5 h-5 border-2 border-text-muted border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-5 h-5 sm:w-6 sm:h-6 border-2 border-text-muted border-t-transparent rounded-full animate-spin"></div>
               <span>Sending Message...</span>
             </>
           ) : (
             <>
-              <Icon name="Send" size={20} />
+              <Icon name="Send" size={20} className="sm:w-6 sm:h-6" />
               <span>Send Message</span>
             </>
           )}

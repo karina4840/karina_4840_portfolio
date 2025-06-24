@@ -49,8 +49,8 @@ const Header = () => {
         isScrolled ? "backdrop-blur-glass shadow-elevation" : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
           <Link
             to="/homepage"
@@ -58,15 +58,15 @@ const Header = () => {
             onClick={closeMenu}
           >
             <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center group-hover:glow-primary transition-all duration-300 group-hover:scale-110">
-                <span className="text-white font-heading font-bold text-lg">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center group-hover:glow-primary transition-all duration-300 group-hover:scale-110">
+                <span className="text-white font-heading font-bold text-sm sm:text-lg">
                   K
                 </span>
               </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full animate-pulse-slow"></div>
+              <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-accent rounded-full animate-pulse-slow"></div>
             </div>
             <div className="hidden sm:block">
-              <span className="text-xl font-heading font-bold text-white group-hover:text-glow-primary transition-all duration-300">
+              <span className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-glow-primary transition-all duration-300">
                 Karina I.
               </span>
               <div className="text-xs text-text-secondary font-mono">
@@ -117,26 +117,26 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-lg text-text-secondary hover:text-white hover:bg-surface-light transition-all duration-300"
+            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-text-secondary hover:text-white hover:bg-surface-light transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            <Icon name={isMenuOpen ? "X" : "Menu"} size={24} />
+            <Icon name={isMenuOpen ? "X" : "Menu"} size={20} className="sm:w-6 sm:h-6" />
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div
           className={`lg:hidden transition-all duration-300 overflow-hidden ${
-            isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+            isMenuOpen ? "max-h-72 sm:max-h-80 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="py-3 space-y-1 backdrop-blur-glass rounded-lg mt-2 border border-border">
+          <div className="py-2 sm:py-3 space-y-0.5 sm:space-y-1 backdrop-blur-glass rounded-lg mt-1 sm:mt-2 border border-border">
             {navigationItems.map((item) => (
               <Link
                 key={item.path}
                 to={item.path}
                 onClick={closeMenu}
-                className={`flex items-center space-x-2 px-3 py-2 mx-2 rounded-lg font-medium transition-all duration-300 ${
+                className={`flex items-center space-x-2 px-3 py-2.5 sm:py-2 mx-2 rounded-lg font-medium transition-all duration-300 min-h-[44px] ${
                   isActivePath(item.path)
                     ? "text-primary bg-surface glow-primary"
                     : "text-text-secondary hover:text-white hover:bg-surface-light"
@@ -145,11 +145,11 @@ const Header = () => {
                 <Icon
                   name={item.icon}
                   size={16}
-                  className={`${
+                  className={`sm:w-4 sm:h-4 ${
                     isActivePath(item.path) ? "text-primary" : "text-accent"
                   }`}
                 />
-                <span className="text-sm">{item.name}</span>
+                <span className="text-sm sm:text-base">{item.name}</span>
                 {isActivePath(item.path) && (
                   <div className="ml-auto w-1.5 h-1.5 bg-primary rounded-full animate-pulse-slow"></div>
                 )}
@@ -157,14 +157,14 @@ const Header = () => {
             ))}
 
             {/* Mobile CTA Buttons */}
-            <div className="px-3 py-2 space-y-2 border-t border-border mt-3">
+            <div className="px-3 py-2 space-y-2 border-t border-border mt-2 sm:mt-3">
               <a
                 href="./assets/files/CV_Karina_Ivanova_Frontend_Developer.pdf"
                 download
                 onClick={closeMenu}
-                className="flex items-center justify-center space-x-2 w-full px-3 py-2 border border-primary text-primary rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-white hover:glow-primary text-sm"
+                className="flex items-center justify-center space-x-2 w-full px-3 py-2.5 sm:py-2 border border-primary text-primary rounded-lg font-semibold transition-all duration-300 hover:bg-primary hover:text-white hover:glow-primary text-sm sm:text-base min-h-[44px]"
               >
-                <Icon name="Download" size={14} />
+                <Icon name="Download" size={14} className="sm:w-4 sm:h-4" />
                 <span>Download Resume</span>
               </a>
             </div>
@@ -173,7 +173,7 @@ const Header = () => {
       </nav>
 
       {/* Availability Status Indicator */}
-      <div className="absolute top-full right-4 mt-2 hidden lg:block">
+      <div className="absolute top-full right-3 sm:right-4 mt-1 sm:mt-2 hidden lg:block">
         <div className="flex items-center space-x-2 px-3 py-1 bg-surface backdrop-blur-glass rounded-full border border-success text-xs">
           <div className="w-2 h-2 bg-success rounded-full animate-pulse-slow"></div>
           <span className="text-success font-medium">
