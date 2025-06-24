@@ -50,26 +50,26 @@ const Header = () => {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
+        <div className="flex items-center justify-between h-14 sm:h-28 lg:h-20">
           {/* Logo */}
           <Link
             to="/homepage"
-            className="flex items-center space-x-2 group"
+            className="flex items-center space-x-2 sm:space-x-4 group"
             onClick={closeMenu}
           >
             <div className="relative">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center group-hover:glow-primary transition-all duration-300 group-hover:scale-110">
-                <span className="text-white font-heading font-bold text-sm sm:text-lg">
+              <div className="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center group-hover:glow-primary transition-all duration-300 group-hover:scale-110">
+                <span className="text-white font-heading font-bold text-sm sm:text-xl">
                   K
                 </span>
               </div>
               <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2 h-2 sm:w-3 sm:h-3 bg-accent rounded-full animate-pulse-slow"></div>
             </div>
             <div className="hidden sm:block">
-              <span className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-glow-primary transition-all duration-300">
+              <span className="text-lg sm:text-2xl font-heading font-bold text-white group-hover:text-glow-primary transition-all duration-300">
                 Karina I.
               </span>
-              <div className="text-xs text-text-secondary font-mono">
+              <div className="text-xs sm:text-md text-text-secondary font-mono">
                 Web Creator
               </div>
             </div>
@@ -117,10 +117,10 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-text-secondary hover:text-white hover:bg-surface-light transition-all duration-300 min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="lg:hidden p-1.5 sm:p-2 rounded-lg text-text-secondary hover:text-white hover:bg-surface-light transition-all duration-300 min-w-[66px] min-h-[66px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            <Icon name={isMenuOpen ? "X" : "Menu"} size={20} className="sm:w-6 sm:h-6" />
+            <Icon name={isMenuOpen ? "X" : "Menu"} size={20} className="sm:w-8 sm:h-8" />
           </button>
         </div>
 

@@ -45,7 +45,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 pt-20 lg:pt-0">
+    <section className="min-h-screen sm:min-h-[50vh]  flex items-center justify-center px-4 pt-20 lg:pt-0">
       <div className="max-w-6xl mx-auto text-center">
         <motion.div
           variants={containerVariants}
