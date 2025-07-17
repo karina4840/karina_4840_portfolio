@@ -129,7 +129,7 @@ const HeroSection = () => {
               ease: "easeInOut",
             }}
           >
-            <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg opacity-20 glow-primary"></div>
+            <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-lg blur-xl  opacity-20 glow-primary"></div>
           </motion.div>
 
           <motion.div
@@ -145,7 +145,7 @@ const HeroSection = () => {
               delay: 1,
             }}
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-accent to-secondary rounded-full opacity-30 glow-accent"></div>
+            <div className="w-12 h-12 bg-gradient-to-br from-accent to-secondary rounded-full blur-xl  opacity-30 glow-accent"></div>
           </motion.div>
 
           <motion.div
@@ -161,7 +161,7 @@ const HeroSection = () => {
               delay: 2,
             }}
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-success to-primary rounded-lg opacity-25 glow-success"></div>
+            <div className="w-8 h-8 bg-gradient-to-br from-success to-primary rounded-lg blur-xl  opacity-25 glow-success"></div>
           </motion.div>
         </motion.div>
       </div>

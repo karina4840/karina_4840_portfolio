@@ -143,7 +143,7 @@ const CallToAction = () => {
           {/* Floating Elements - Hidden on mobile for better performance */}
           <div className="relative">
             <motion.div
-              className="absolute -top-20 -left-20 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full opacity-10 hidden xl:block"
+              className="absolute -top-20 -left-20 w-32 h-32 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl  opacity-10 hidden xl:block"
               animate={{
                 scale: [1, 1.2, 1],
                 rotate: [0, 180, 360],
@@ -156,7 +156,7 @@ const CallToAction = () => {
             />
 
             <motion.div
-              className="absolute -top-16 -right-16 w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-lg opacity-15 hidden xl:block"
+              className="absolute -top-16 -right-16 w-24 h-24 bg-gradient-to-br from-accent to-primary rounded-lg blur-xl   opacity-15 hidden xl:block"
               animate={{
                 y: [0, -20, 0],
                 rotate: [0, -90, 0],
